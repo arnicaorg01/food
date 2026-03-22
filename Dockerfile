@@ -1,17 +1,12 @@
-# Vulnerable base image with known CVEs
-FROM ubuntu:16.04  
-
-# Install outdated packages with vulnerabilities
-RUN apt-get update && apt-get install -y \
-    wget=1.17.1-1ubuntu1 \
-    curl=7.47.0-1ubuntu2 \
-    openssl=1.0.2g-1ubuntu4 \
-    apache2=2.4.18-2ubuntu3 \
-    && rm -rf /var/lib/apt/lists/*
-
-# Add an insecure executable
-COPY vulnerable.sh /usr/local/bin/vulnerable.sh
-RUN chmod +x /usr/local/bin/vulnerable.sh
-
-# Set default command (insecure script execution)
-CMD ["/usr/local/bin/vulnerable.sh"]
+FROM node:18-alpine
+WORKDIR /app
+COPY . .
+ENV DB_PASSWORD=hardcoded_db_pass_food_2024
+ENV API_SECRET_KEY=api_secret_food_HARDCODED_XYZ123
+ENV JWT_SECRET=jwt_hardcoded_food_ABCDEF0987654321
+ENV AWS_ACCESS_KEY_ID=********************
+ENV AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+ENV STRIPE_SECRET_KEY=sk_live_hardcoded_food_1234567890abcdef
+RUN npm install --production
+EXPOSE 3000
+CMD ["node", "index.js"]
