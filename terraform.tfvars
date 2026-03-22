@@ -1,0 +1,6 @@
+aws_access_key     = "********************"
+aws_secret_key     = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+db_password        = "terraform_db_pass_food_hardcoded2024"
+azure_client_secret = "AzureTF_ClientSecret_food_hardcoded_XYZ"
+gcp_credentials    = "gcp_sa_json_hardcoded_food_BASE64=="
+jwt_secret         = "terraform_jwt_food_hardcoded_ABCDEF123"
